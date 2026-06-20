@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PRN232.LMS.API</name>
+    </assembly>
+    <members>
+        <member name="T:PRN232.LMS.API.Controllers.CoursesController">
+            <summary>Manage Courses</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.GetAll(PRN232.LMS.Services.QueryParams.CourseQueryParams)">
+            <summary>Get all courses with search, sort, paging, field selection and expand</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.GetById(System.Int32)">
+            <summary>Get course by ID</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.GetEnrollmentsByCourseId(System.Int32,System.String)">
+            <summary>Get all enrollments under a specific course.</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.GetStudentsByCourseId(System.Int32)">
+            <summary>Get all students enrolled in a specific course.</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.Create(PRN232.LMS.API.Models.Requests.CreateCourseRequest)">
+            <summary>Create a new course</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.Update(System.Int32,PRN232.LMS.API.Models.Requests.UpdateCourseRequest)">
+            <summary>Update an existing course</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.Patch(System.Int32,PRN232.LMS.API.Models.Requests.PatchCourseRequest)">
+            <summary>Partially update a course</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.CoursesController.Delete(System.Int32)">
+            <summary>Delete a course</summary>
+        </member>
+        <member name="T:PRN232.LMS.API.Controllers.EnrollmentsController">
+            <summary>Manage Enrollments</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.EnrollmentsController.GetAll(PRN232.LMS.Services.QueryParams.EnrollmentQueryParams)">
+            <summary>Get all enrollments with search, sort, paging, field selection and expand (student, course)</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.EnrollmentsController.GetById(System.Int32)">
+            <summary>Get enrollment by ID</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.EnrollmentsController.Create(PRN232.LMS.API.Models.Requests.CreateEnrollmentRequest)">
+            <summary>Create a new enrollment</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.EnrollmentsController.Update(System.Int32,PRN232.LMS.API.Models.Requests.UpdateEnrollmentRequest)">
+            <summary>Update an existing enrollment</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.EnrollmentsController.Patch(System.Int32,PRN232.LMS.API.Models.Requests.PatchEnrollmentRequest)">
+            <summary>Partially update an enrollment</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.EnrollmentsController.Delete(System.Int32)">
+            <summary>Delete an enrollment</summary>
+        </member>
+        <member name="T:PRN232.LMS.API.Controllers.SemestersController">
+            <summary>Manage Semesters</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SemestersController.GetAll(PRN232.LMS.Services.QueryParams.SemesterQueryParams)">
+            <summary>Get all semesters with search, sort and paging</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SemestersController.GetById(System.Int32)">
+            <summary>Get semester by ID</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SemestersController.GetCoursesBySemesterId(System.Int32)">
+            <summary>Get all courses under a specific semester</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SemestersController.Create(PRN232.LMS.API.Models.Requests.CreateSemesterRequest)">
+            <summary>Create a new semester</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SemestersController.Update(System.Int32,PRN232.LMS.API.Models.Requests.UpdateSemesterRequest)">
+            <summary>Update an existing semester</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SemestersController.Delete(System.Int32)">
+            <summary>Delete a semester</summary>
+        </member>
+        <member name="T:PRN232.LMS.API.Controllers.StudentsController">
+            <summary>Manage Students</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.GetAll(PRN232.LMS.Services.QueryParams.StudentQueryParams,System.String)">
+            <summary>Get all students with search, sort, paging, field selection and expand</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.GetById(System.Int32)">
+            <summary>Get student by ID</summary>
+            <param name="id">Student ID</param>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.GetEnrollmentsByStudentId(System.Int32)">
+            <summary>Get all enrollments under a specific student</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.Create(PRN232.LMS.API.Models.Requests.CreateStudentRequest)">
+            <summary>Create a new student</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.Update(System.Int32,PRN232.LMS.API.Models.Requests.UpdateStudentRequest)">
+            <summary>Update an existing student</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.Patch(System.Int32,PRN232.LMS.API.Models.Requests.PatchStudentRequest)">
+            <summary>Partially update a student</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.Delete(System.Int32)">
+            <summary>Delete a student</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.StudentsController.GetAdminSummary">
+            <summary>Admin-only endpoint for auditing student count</summary>
+        </member>
+        <member name="T:PRN232.LMS.API.Controllers.SubjectsController">
+            <summary>Manage Subjects</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SubjectsController.GetAll(PRN232.LMS.Services.QueryParams.SubjectQueryParams)">
+            <summary>Get all subjects with search, sort and paging</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SubjectsController.GetById(System.Int32)">
+            <summary>Get subject by ID</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SubjectsController.Create(PRN232.LMS.API.Models.Requests.CreateSubjectRequest)">
+            <summary>Create a new subject</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SubjectsController.Update(System.Int32,PRN232.LMS.API.Models.Requests.UpdateSubjectRequest)">
+            <summary>Update an existing subject</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SubjectsController.Patch(System.Int32,PRN232.LMS.API.Models.Requests.PatchSubjectRequest)">
+            <summary>Partially update a subject</summary>
+        </member>
+        <member name="M:PRN232.LMS.API.Controllers.SubjectsController.Delete(System.Int32)">
+            <summary>Delete a subject</summary>
+        </member>
+    </members>
+</doc>
