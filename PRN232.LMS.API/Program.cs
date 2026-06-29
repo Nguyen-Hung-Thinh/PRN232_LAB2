@@ -37,7 +37,7 @@ builder.Services.AddScoped<IEnrollmentService, EnrollmentService>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddFluentValidationAutoValidation();
-builder.Services.AddValidatorsFromAssemblyContaining<PRN232.LMS.API.Models.Requests.CreateStudentRequestValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<PRN232.LMS.API.Validators.CreateStudentRequestValidator>();
 
 builder.Services.Configure<ApiBehaviorOptions>(options =>
 {
@@ -130,7 +130,23 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<LmsDbContext>();
-    dbContext.Database.Migrate();
+
+    // Retry loop: PostgreSQL takes a few seconds to be ready inside Docker.
+    // Without this, Migrate() throws "Connection refused" and the app crashes.
+    var maxRetries = 10;
+    for (int attempt = 1; attempt <= maxRetries; attempt++)
+    {
+        try
+        {
+            dbContext.Database.Migrate();
+            break; // success
+        }
+        catch (Exception ex) when (attempt < maxRetries)
+        {
+            Console.WriteLine($"[Startup] DB not ready (attempt {attempt}/{maxRetries}): {ex.Message}");
+            Thread.Sleep(3000);
+        }
+    }
 
     // Fix admin password hash (seed data may have stale/invalid hash)
     var adminUser = dbContext.Users.FirstOrDefault(u => u.Username == "admin");

@@ -13,7 +13,9 @@ using PRN232.LMS.Repositories.Entities;
 namespace PRN232.LMS.API.Controllers;
 
 [ApiController]
+[ApiVersion("1.0")]
 [Route("api/auth")]
+[Route("api/v{version:apiVersion}/auth")]
 [Produces("application/json", "application/xml")]
 public class AuthController : ControllerBase
 {

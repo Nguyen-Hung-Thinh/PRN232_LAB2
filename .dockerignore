@@ -1,0 +1,20 @@
+# Exclude build output folders - these contain Windows absolute paths
+# that break dotnet restore when building on Linux Docker
+**/bin/
+**/obj/
+
+# Git and IDE metadata
+.git/
+.vs/
+.idea/
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+
+# Local-only config (DB connection points to localhost, not Docker db service)
+**/appsettings.Development.json
+
+# Docker override (not needed inside image)
+docker-compose.override.yml
